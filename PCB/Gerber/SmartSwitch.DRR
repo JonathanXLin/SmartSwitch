@@ -1,0 +1,23 @@
+---------------------------------------------------------------------------
+NCDrill File Report For: SmartSwitch.CMPcbDoc   2019-11-02  7:50:15 PM
+---------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : SmartSwitch.TXT
+
+Tool         Hole Size           Hole Type     Hole Count Plated       Tool Travel
+---------------------------------------------------------------------------
+T1        28mil (0.7112mm)         Round          1                0.00 Inch (0.00 mm)
+T2        30mil (0.762mm)          Round          2                1.29 Inch (32.65 mm)
+T3        35mil (0.889mm)          Round          4                0.40 Inch (10.16 mm)
+T4        39.37mil (1mm)           Round          3                0.20 Inch (5.00 mm)
+T5        40mil (1.016mm)          Round          36               8.77 Inch (222.83 mm)
+T6        43.31mil (1.10007mm)     Round          2                0.10 Inch (2.54 mm)
+T7        55mil (1.397mm)          Round          4                3.40 Inch (86.36 mm)
+T8        55.12mil (1.40005mm)     Round          9                1.97 Inch (50.00 mm)
+T9        63mil (1.6002mm)         Round          4                2.08 Inch (52.96 mm)
+T10       125mil (3.175mm)         Round          4                10.84 Inch (275.34 mm)
+---------------------------------------------------------------------------
+Totals                                            69               29.05 Inch (737.83 mm)
+
+Total Processing Time (hh:mm:ss) : 00:00:00
