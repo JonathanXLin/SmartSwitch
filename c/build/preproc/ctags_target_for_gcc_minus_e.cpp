@@ -24,9 +24,11 @@ String title_text = "title_text";
 String button_on_name = "button_1";
 String button_off_name = "button_2";
 
+//=========================================================================================================================
+
 // Load Wi-Fi library
-# 24 "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\c\\NodeMCU.ino" 2
-# 25 "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\c\\NodeMCU.ino" 2
+# 26 "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\c\\NodeMCU.ino" 2
+# 27 "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\c\\NodeMCU.ino" 2
 
 // Set web server port number to 80
 WiFiServer server(port_number);

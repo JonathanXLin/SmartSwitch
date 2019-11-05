@@ -22,6 +22,8 @@ String title_text = "title_text";
 String button_on_name = "button_1";
 String button_off_name = "button_2";
 
+//=========================================================================================================================
+
 // Load Wi-Fi library
 #include <ESP8266WiFi.h>
 #include <Wire.h>
@@ -49,11 +51,11 @@ unsigned long previousTime = 0;
 // Define timeout time in milliseconds (example: 2000ms = 2s)
 const long timeoutTime = 2000;
 
-#line 49 "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\c\\NodeMCU.ino"
+#line 51 "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\c\\NodeMCU.ino"
 void setup();
-#line 78 "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\c\\NodeMCU.ino"
+#line 80 "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\c\\NodeMCU.ino"
 void loop();
-#line 49 "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\c\\NodeMCU.ino"
+#line 51 "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\c\\NodeMCU.ino"
 void setup() {
   // Initialize serial
   Serial.begin(115200);
