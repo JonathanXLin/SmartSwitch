@@ -1,9 +1,19 @@
 ------------------------------------------------------------------------------------------
-Gerber File Extension Report For: SmartSwitch.GBR   2019-11-02  7:50:15 PM
+Gerber File Extension Report For: SmartSwitch.GBR   2019-11-04  9:30:22 PM
 ------------------------------------------------------------------------------------------
 
 
 ------------------------------------------------------------------------------------------
 Layer Extension     Layer Description                      
 ------------------------------------------------------------------------------------------
+.GTL                Top Layer                               
+.GBL                Bottom Layer                            
+.GTO                Top Overlay                             
+.GTP                Top Paste                               
+.GTS                Top Solder                              
+.GBS                Bottom Solder                           
+.GBP                Bottom Paste                            
+.GBO                Bottom Overlay                          
+.GKO                Keep-Out Layer                          
+.Outline            Outline                                 
 ------------------------------------------------------------------------------------------
