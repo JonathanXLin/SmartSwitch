@@ -1,4 +1,4 @@
-c:\Users\Jonathan\Desktop\NodeMCU\build\core\Updater.cpp.o: \
+c:\Users\Jonathan\Documents\GitHub\SmartSwitch\code\build\core\Updater.cpp.o: \
  C:\Users\Jonathan\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.2\cores\esp8266\Updater.cpp \
  C:\Users\Jonathan\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.2\cores\esp8266\Updater.h \
  C:\Users\Jonathan\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.2\cores\esp8266/Arduino.h \
@@ -70,7 +70,7 @@ c:\Users\Jonathan\Desktop\NodeMCU\build\core\Updater.cpp.o: \
  C:\Users\Jonathan\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.2\cores\esp8266\eboot_command.h \
  C:\Users\Jonathan\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.2\cores\esp8266/interrupts.h \
  C:\Users\Jonathan\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.2\cores\esp8266/esp8266_peri.h \
- c:\Users\Jonathan\Desktop\NodeMCU\build/core/Updater_Signing.h \
+ c:\Users\Jonathan\Documents\GitHub\SmartSwitch\code\build/core/Updater_Signing.h \
  C:\Users\Jonathan\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.2/tools/sdk/include/spi_flash.h \
  C:\Users\Jonathan\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.2/tools/sdk/include/user_interface.h \
  C:\Users\Jonathan\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.2/tools/sdk/include/os_type.h \

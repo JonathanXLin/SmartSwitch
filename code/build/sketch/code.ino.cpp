@@ -1,6 +1,6 @@
 #include <Arduino.h>
-#line 1 "c:\\Users\\Jonathan\\Desktop\\NodeMCU\\NodeMCU.ino"
-#line 1 "c:\\Users\\Jonathan\\Desktop\\NodeMCU\\NodeMCU.ino"
+#line 1 "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\code\\code.ino"
+#line 1 "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\code\\code.ino"
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h>
 #include <ESP8266WiFiMulti.h>
@@ -11,6 +11,8 @@
 // Assign output variables to GPIO pins
 const int pin_set = 9;
 const int pin_reset = 10;
+
+bool master_state = false; // State of SmartSwitch
 
 bool set_state = false;
 int set_timeout = 99999; // Initialized to not time out initially
@@ -24,11 +26,11 @@ ESP8266WebServer server(80);    // Create a webserver object that listens for HT
 String getContentType(String filename); // convert the file extension to the MIME type
 bool handleFileRead(String path);       // send the right file to the client (if it exists)
 
-#line 24 "c:\\Users\\Jonathan\\Desktop\\NodeMCU\\NodeMCU.ino"
+#line 26 "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\code\\code.ino"
 void setup();
-#line 65 "c:\\Users\\Jonathan\\Desktop\\NodeMCU\\NodeMCU.ino"
+#line 67 "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\code\\code.ino"
 void loop(void);
-#line 24 "c:\\Users\\Jonathan\\Desktop\\NodeMCU\\NodeMCU.ino"
+#line 26 "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\code\\code.ino"
 void setup() {
   Serial.begin(115200);         // Start the Serial communication to send messages to the computer
   delay(10);
@@ -53,7 +55,7 @@ void setup() {
   Serial.print("IP address:\t");
   Serial.println(WiFi.localIP());           // Send the IP address of the ESP8266 to the computer
 
-  if (MDNS.begin("esp8266")) {              // Start the mDNS responder for esp8266.local
+  if (MDNS.begin("SmartSwitch")) {              // Start the mDNS responder for esp8266.local
     Serial.println("mDNS responder started");
   } else {
     Serial.println("Error setting up MDNS responder!");
@@ -100,12 +102,20 @@ bool handleFileRead(String path) { // send the right file to the client (if it e
 
   Serial.println("handleFileRead: " + path);
   
-  if (path.endsWith("/button_on.html")) 
+  if (path.endsWith("/"))
+  {
+    if (master_state)
+      path += "button_on.html";
+    else
+      path += "button_off.html";
+  }
+  else if (path.endsWith("/button_on.html")) 
   {
     digitalWrite(pin_set, HIGH);
 
     set_state = true;
     set_timeout = millis() + 500;
+    master_state = true;
 
     Serial.println(path);
   }
@@ -115,6 +125,7 @@ bool handleFileRead(String path) { // send the right file to the client (if it e
 
     reset_state = true;
     reset_timeout = millis() + 500;
+    master_state = false;
     
     Serial.println(path);
   }

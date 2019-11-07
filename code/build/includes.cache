@@ -10,22 +10,22 @@
     "Includepath": "C:\\Users\\Jonathan\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.5.2\\variants\\nodemcu"
   },
   {
-    "Sourcefile": "c:\\Users\\Jonathan\\Desktop\\NodeMCU\\build\\sketch\\NodeMCU.ino.cpp",
+    "Sourcefile": "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\code\\build\\sketch\\code.ino.cpp",
     "Include": "ESP8266WiFi.h",
     "Includepath": "C:\\Users\\Jonathan\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.5.2\\libraries\\ESP8266WiFi\\src"
   },
   {
-    "Sourcefile": "c:\\Users\\Jonathan\\Desktop\\NodeMCU\\build\\sketch\\NodeMCU.ino.cpp",
+    "Sourcefile": "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\code\\build\\sketch\\code.ino.cpp",
     "Include": "ESP8266mDNS.h",
     "Includepath": "C:\\Users\\Jonathan\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.5.2\\libraries\\ESP8266mDNS\\src"
   },
   {
-    "Sourcefile": "c:\\Users\\Jonathan\\Desktop\\NodeMCU\\build\\sketch\\NodeMCU.ino.cpp",
+    "Sourcefile": "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\code\\build\\sketch\\code.ino.cpp",
     "Include": "ESP8266WebServer.h",
     "Includepath": "C:\\Users\\Jonathan\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.5.2\\libraries\\ESP8266WebServer\\src"
   },
   {
-    "Sourcefile": "c:\\Users\\Jonathan\\Desktop\\NodeMCU\\build\\sketch\\NodeMCU.ino.cpp",
+    "Sourcefile": "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\code\\build\\sketch\\code.ino.cpp",
     "Include": "",
     "Includepath": ""
   },

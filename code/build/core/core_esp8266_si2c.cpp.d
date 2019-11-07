@@ -1,4 +1,4 @@
-c:\Users\Jonathan\Desktop\NodeMCU\build\core\core_esp8266_si2c.cpp.o: \
+c:\Users\Jonathan\Documents\GitHub\SmartSwitch\code\build\core\core_esp8266_si2c.cpp.o: \
  C:\Users\Jonathan\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.2\cores\esp8266\core_esp8266_si2c.cpp \
  C:\Users\Jonathan\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.2\cores\esp8266\twi.h \
  C:\Users\Jonathan\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.2\cores\esp8266\Arduino.h \

@@ -1,4 +1,4 @@
-c:\Users\Jonathan\Desktop\NodeMCU\build\core\spiffs_hal.cpp.o: \
+c:\Users\Jonathan\Documents\GitHub\SmartSwitch\code\build\core\spiffs_hal.cpp.o: \
  C:\Users\Jonathan\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.2\cores\esp8266\spiffs_hal.cpp \
  C:\Users\Jonathan\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.2\cores\esp8266/Arduino.h \
  C:\Users\Jonathan\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.2/tools/sdk/libc/xtensa-lx106-elf/include/stdlib.h \

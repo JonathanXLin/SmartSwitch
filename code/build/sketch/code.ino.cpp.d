@@ -1,5 +1,5 @@
-c:\Users\Jonathan\Desktop\NodeMCU\build\sketch\NodeMCU.ino.cpp.o: \
- c:\Users\Jonathan\Desktop\NodeMCU\build\sketch\NodeMCU.ino.cpp \
+c:\Users\Jonathan\Documents\GitHub\SmartSwitch\code\build\sketch\code.ino.cpp.o: \
+ c:\Users\Jonathan\Documents\GitHub\SmartSwitch\code\build\sketch\code.ino.cpp \
  C:\Users\Jonathan\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.2\cores\esp8266/Arduino.h \
  C:\Users\Jonathan\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.2/tools/sdk/libc/xtensa-lx106-elf/include/stdlib.h \
  C:\Users\Jonathan\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.2/tools/sdk/libc/xtensa-lx106-elf/include/machine/ieeefp.h \

@@ -1,4 +1,4 @@
-c:\Users\Jonathan\Desktop\NodeMCU\build\libraries\ESP8266WiFi\WiFiClientSecureBearSSL.cpp.o: \
+c:\Users\Jonathan\Documents\GitHub\SmartSwitch\code\build\libraries\ESP8266WiFi\WiFiClientSecureBearSSL.cpp.o: \
  C:\Users\Jonathan\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.2\libraries\ESP8266WiFi\src\WiFiClientSecureBearSSL.cpp \
  C:\Users\Jonathan\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.2/tools/sdk/libc/xtensa-lx106-elf/include/errno.h \
  C:\Users\Jonathan\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.2/tools/sdk/libc/xtensa-lx106-elf/include/sys/errno.h \

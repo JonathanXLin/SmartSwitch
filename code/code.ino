@@ -9,6 +9,8 @@
 const int pin_set = 9;
 const int pin_reset = 10;
 
+bool master_state = false; // State of SmartSwitch
+
 bool set_state = false;
 int set_timeout = 99999; // Initialized to not time out initially
 bool reset_state = false;
@@ -45,7 +47,7 @@ void setup() {
   Serial.print("IP address:\t");
   Serial.println(WiFi.localIP());           // Send the IP address of the ESP8266 to the computer
 
-  if (MDNS.begin("esp8266")) {              // Start the mDNS responder for esp8266.local
+  if (MDNS.begin("SmartSwitch")) {              // Start the mDNS responder for esp8266.local
     Serial.println("mDNS responder started");
   } else {
     Serial.println("Error setting up MDNS responder!");
@@ -92,12 +94,20 @@ bool handleFileRead(String path) { // send the right file to the client (if it e
 
   Serial.println("handleFileRead: " + path);
   
-  if (path.endsWith("/button_on.html")) 
+  if (path.endsWith("/"))
+  {
+    if (master_state)
+      path += "button_on.html";
+    else
+      path += "button_off.html";
+  }
+  else if (path.endsWith("/button_on.html")) 
   {
     digitalWrite(pin_set, HIGH);
 
     set_state = true;
     set_timeout = millis() + 500;
+    master_state = true;
 
     Serial.println(path);
   }
@@ -107,6 +117,7 @@ bool handleFileRead(String path) { // send the right file to the client (if it e
 
     reset_state = true;
     reset_timeout = millis() + 500;
+    master_state = false;
     
     Serial.println(path);
   }

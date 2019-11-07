@@ -1,4 +1,4 @@
-c:\Users\Jonathan\Desktop\NodeMCU\build\core\sntp-lwip2.cpp.o: \
+c:\Users\Jonathan\Documents\GitHub\SmartSwitch\code\build\core\sntp-lwip2.cpp.o: \
  C:\Users\Jonathan\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.2\cores\esp8266\sntp-lwip2.cpp \
  C:\Users\Jonathan\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.2/tools/sdk/lwip2/include/lwip/init.h \
  C:\Users\Jonathan\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.2/tools/sdk/lwip2/include/lwip/opt.h \

@@ -1,4 +1,4 @@
-c:\Users\Jonathan\Desktop\NodeMCU\build\core\HardwareSerial.cpp.o: \
+c:\Users\Jonathan\Documents\GitHub\SmartSwitch\code\build\core\HardwareSerial.cpp.o: \
  C:\Users\Jonathan\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.2\cores\esp8266\HardwareSerial.cpp \
  C:\Users\Jonathan\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.2/tools/sdk/libc/xtensa-lx106-elf/include/stdlib.h \
  C:\Users\Jonathan\AppData\Local\Arduino15\packages\esp8266\hardware\esp8266\2.5.2/tools/sdk/libc/xtensa-lx106-elf/include/machine/ieeefp.h \
