@@ -6,8 +6,8 @@
 #include "FS.h"   // Include the SPIFFS library
 
 // Assign output variables to GPIO pins
-const int pin_set = 9;
-const int pin_reset = 10;
+const int pin_set = 14;
+const int pin_reset = 12;
 
 bool master_state = false; // State of SmartSwitch
 
@@ -24,9 +24,16 @@ String getContentType(String filename); // convert the file extension to the MIM
 bool handleFileRead(String path);       // send the right file to the client (if it exists)
 
 void setup() {
-  Serial.begin(115200);         // Start the Serial communication to send messages to the computer
-  delay(10);
-  Serial.println('\n');
+
+  //ets_intr_lock();
+  //ESP.wdtDisable();
+  //ESP.wdtEnable(1000);
+
+  Serial.begin(115200);
+  //while(!Serial) { delay(100); }
+  
+  //delay(10);
+  Serial.println("test");
 
   pinMode(pin_set, OUTPUT);
   pinMode(pin_reset, OUTPUT);
@@ -62,9 +69,13 @@ void setup() {
 
   server.begin();                           // Actually start the server
   Serial.println("HTTP server started");
+  
 }
 
 void loop(void) {
+  
+  ESP.wdtFeed();
+  
   server.handleClient();
 
   if (set_state && millis() > set_timeout)
@@ -80,6 +91,7 @@ void loop(void) {
 
     reset_state = false;
   }
+  
 }
 
 String getContentType(String filename) { // convert the file extension to the MIME type
