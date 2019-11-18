@@ -26,11 +26,6 @@ ESP8266WebServer server(80);    // Create a webserver object that listens for HT
 String getContentType(String filename); // convert the file extension to the MIME type
 bool handleFileRead(String path);       // send the right file to the client (if it exists)
 
-#line 26 "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\code\\code.ino"
-void setup();
-#line 75 "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\code\\code.ino"
-void loop(void);
-#line 26 "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\code\\code.ino"
 void setup() {
 
   //ets_intr_lock();

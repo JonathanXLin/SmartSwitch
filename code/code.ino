@@ -6,8 +6,8 @@
 #include "FS.h"   // Include the SPIFFS library
 
 // Assign output variables to GPIO pins
-const int pin_set = 14;
-const int pin_reset = 12;
+const int pin_set = 13; // D7
+const int pin_reset = 15; // D8
 
 bool master_state = false; // State of SmartSwitch
 

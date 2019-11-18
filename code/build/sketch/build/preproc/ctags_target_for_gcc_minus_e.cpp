@@ -8,8 +8,8 @@
 # 7 "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\code\\code.ino" 2
 
 // Assign output variables to GPIO pins
-const int pin_set = 13; //14;
-const int pin_reset = 15; //12;
+const int pin_set = 14;
+const int pin_reset = 12;
 
 bool master_state = false; // State of SmartSwitch
 
