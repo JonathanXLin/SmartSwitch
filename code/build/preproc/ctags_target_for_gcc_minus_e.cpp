@@ -8,8 +8,11 @@
 # 7 "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\code\\code.ino" 2
 
 // Assign output variables to GPIO pins
-const int pin_set = 13; //14;
-const int pin_reset = 15; //12;
+const int pin_set = 13; // D7
+const int pin_reset = 15; // D8
+
+const int pin_set_led = 5; // D1
+const int pin_reset_led = 2; // D4
 
 bool master_state = false; // State of SmartSwitch
 
@@ -27,14 +30,9 @@ bool handleFileRead(String path); // send the right file to the client (if it ex
 
 void setup() {
 
-  //ets_intr_lock();
-  //ESP.wdtDisable();
-  //ESP.wdtEnable(1000);
-
   Serial.begin(115200);
-  //while(!Serial) { delay(100); }
+  while(!Serial) { delay(100); }
 
-  //delay(10);
   Serial.println("test");
 
   pinMode(pin_set, 0x01);
@@ -118,6 +116,8 @@ bool handleFileRead(String path) { // send the right file to the client (if it e
   else if (path.endsWith("/button_on.html"))
   {
     digitalWrite(pin_set, 0x1);
+    digitalWrite(pin_set_led, 0x1);
+    digitalWrite(pin_reset_led, 0x0);
 
     set_state = true;
     set_timeout = millis() + 500;
@@ -128,6 +128,8 @@ bool handleFileRead(String path) { // send the right file to the client (if it e
   else if (path.endsWith("/button_off.html"))
   {
     digitalWrite(pin_reset, 0x1);
+    digitalWrite(pin_set_led, 0x0);
+    digitalWrite(pin_reset_led, 0x1);
 
     reset_state = true;
     reset_timeout = millis() + 500;
