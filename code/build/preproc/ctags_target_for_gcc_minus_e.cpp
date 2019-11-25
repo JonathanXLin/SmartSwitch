@@ -49,6 +49,20 @@ void setup() {
   digitalWrite(pin_set_led, 0x0);
   digitalWrite(pin_reset_led, 0x0);
 
+  // Flash LEDs
+  for (int i=0; i<2; i++)
+  {
+    digitalWrite(pin_set_led, 0x1);
+    digitalWrite(pin_reset_led, 0x1);
+
+    delay(150);
+
+    digitalWrite(pin_set_led, 0x0);
+    digitalWrite(pin_reset_led, 0x0);
+
+    delay(150);
+  }
+
   // Connect to wifi
   wifiMulti.addAP(network_name, network_password); // add Wi-Fi networks you want to connect to
 
@@ -79,6 +93,17 @@ void setup() {
   server.begin(); // Actually start the server
   Serial.println("HTTP server started");
 
+  // Initialize to off
+  master_state = false;
+
+  digitalWrite(pin_set, 0x0);
+  digitalWrite(pin_reset, 0x1);
+  digitalWrite(pin_set_led, 0x0);
+  digitalWrite(pin_reset_led, 0x1);
+
+  reset_state = true;
+  reset_timeout = millis() + 500;
+  master_state = false;
 }
 
 void loop(void) {

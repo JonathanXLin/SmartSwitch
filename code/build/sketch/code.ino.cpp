@@ -35,7 +35,7 @@ bool handleFileRead(String path);       // send the right file to the client (if
 
 #line 33 "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\code\\code.ino"
 void setup();
-#line 82 "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\code\\code.ino"
+#line 107 "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\code\\code.ino"
 void loop(void);
 #line 33 "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\code\\code.ino"
 void setup() {
@@ -54,6 +54,20 @@ void setup() {
   digitalWrite(pin_reset, LOW);
   digitalWrite(pin_set_led, LOW);
   digitalWrite(pin_reset_led, LOW);
+
+  // Flash LEDs
+  for (int i=0; i<2; i++)
+  {
+    digitalWrite(pin_set_led, HIGH);
+    digitalWrite(pin_reset_led, HIGH);
+
+    delay(150);
+
+    digitalWrite(pin_set_led, LOW);
+    digitalWrite(pin_reset_led, LOW);
+
+    delay(150);
+  }
 
   // Connect to wifi
   wifiMulti.addAP(network_name, network_password); // add Wi-Fi networks you want to connect to
@@ -85,6 +99,17 @@ void setup() {
   server.begin(); // Actually start the server
   Serial.println("HTTP server started");
   
+  // Initialize to off
+  master_state = false; 
+
+  digitalWrite(pin_set, LOW);
+  digitalWrite(pin_reset, HIGH);
+  digitalWrite(pin_set_led, LOW);
+  digitalWrite(pin_reset_led, HIGH);
+
+  reset_state = true;
+  reset_timeout = millis() + 500;
+  master_state = false;
 }
 
 void loop(void) {
