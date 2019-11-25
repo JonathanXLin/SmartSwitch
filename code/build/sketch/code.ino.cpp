@@ -8,12 +8,16 @@
 #include <ESP8266WebServer.h>
 #include "FS.h"   // Include the SPIFFS library
 
+// User wi-fi credentials
+char network_name[64] = "ATTW6YS4I2";
+char network_password[64] = "c%qi=ijne=t+";
+
 // Assign output variables to GPIO pins
 const int pin_set = 13; // D7
 const int pin_reset = 15; // D8
 
 const int pin_set_led = 5; // D1
-const int pin_reset_led = 2; // D4
+const int pin_reset_led = 4; // D2
 
 bool master_state = false; // State of SmartSwitch
 
@@ -29,24 +33,30 @@ ESP8266WebServer server(80);    // Create a webserver object that listens for HT
 String getContentType(String filename); // convert the file extension to the MIME type
 bool handleFileRead(String path);       // send the right file to the client (if it exists)
 
-#line 29 "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\code\\code.ino"
+#line 33 "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\code\\code.ino"
 void setup();
-#line 73 "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\code\\code.ino"
+#line 82 "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\code\\code.ino"
 void loop(void);
-#line 29 "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\code\\code.ino"
+#line 33 "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\code\\code.ino"
 void setup() {
 
   Serial.begin(115200);
   while(!Serial) { delay(100); }
 
-  Serial.println("test");
-
+  // Initialize pin modes
   pinMode(pin_set, OUTPUT);
   pinMode(pin_reset, OUTPUT);
+  pinMode(pin_set_led, OUTPUT);
+  pinMode(pin_reset_led, OUTPUT);
+
+  // Initialize pin states
   digitalWrite(pin_set, LOW);
   digitalWrite(pin_reset, LOW);
+  digitalWrite(pin_set_led, LOW);
+  digitalWrite(pin_reset_led, LOW);
 
-  wifiMulti.addAP("ATTW6YS4I2", "c%qi=ijne=t+");   // add Wi-Fi networks you want to connect to
+  // Connect to wifi
+  wifiMulti.addAP(network_name, network_password); // add Wi-Fi networks you want to connect to
 
   Serial.println("Connecting ...");
   int i = 0;
@@ -56,24 +66,23 @@ void setup() {
   }
   Serial.println('\n');
   Serial.print("Connected to ");
-  Serial.println(WiFi.SSID());              // Tell us what network we're connected to
-  Serial.print("IP address:\t");
-  Serial.println(WiFi.localIP());           // Send the IP address of the ESP8266 to the computer
+  Serial.println(WiFi.SSID());
+  Serial.print("IP address:\t"); // Print IP address
+  Serial.println(WiFi.localIP());
 
-  if (MDNS.begin("SmartSwitch")) {              // Start the mDNS responder for esp8266.local
+  if (MDNS.begin("SmartSwitch")) // Start the mDNS responder for esp8266.local
     Serial.println("mDNS responder started");
-  } else {
+  else 
     Serial.println("Error setting up MDNS responder!");
-  }
 
-  SPIFFS.begin();                           // Start the SPI Flash Files System
+  SPIFFS.begin(); // Start the SPI Flash Files System
   
   server.onNotFound([]() {                              // If the client requests any URI
     if (!handleFileRead(server.uri()))                  // send it if it exists
       server.send(404, "text/plain", "404: Not Found"); // otherwise, respond with a 404 (Not Found) error
   });
 
-  server.begin();                           // Actually start the server
+  server.begin(); // Actually start the server
   Serial.println("HTTP server started");
   
 }
@@ -84,20 +93,18 @@ void loop(void) {
   
   server.handleClient();
 
+  // Reset after elapsed time after command
   if (set_state && millis() > set_timeout)
   {
     digitalWrite(pin_set, LOW);
-
     set_state = false;
   }
 
   if (reset_state && millis() > reset_timeout)
   {
     digitalWrite(pin_reset, LOW);
-
     reset_state = false;
   }
-  
 }
 
 String getContentType(String filename) { // convert the file extension to the MIME type
@@ -122,6 +129,7 @@ bool handleFileRead(String path) { // send the right file to the client (if it e
   else if (path.endsWith("/button_on.html")) 
   {
     digitalWrite(pin_set, HIGH);
+    digitalWrite(pin_reset, LOW);
     digitalWrite(pin_set_led, HIGH);
     digitalWrite(pin_reset_led, LOW);
 
@@ -133,6 +141,7 @@ bool handleFileRead(String path) { // send the right file to the client (if it e
   }
   else if (path.endsWith("/button_off.html"))
   {
+    digitalWrite(pin_set, LOW);
     digitalWrite(pin_reset, HIGH);
     digitalWrite(pin_set_led, LOW);
     digitalWrite(pin_reset_led, HIGH);

@@ -7,12 +7,16 @@
 # 6 "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\code\\code.ino" 2
 # 7 "c:\\Users\\Jonathan\\Documents\\GitHub\\SmartSwitch\\code\\code.ino" 2
 
+// User wi-fi credentials
+char network_name[64] = "ATTW6YS4I2";
+char network_password[64] = "c%qi=ijne=t+";
+
 // Assign output variables to GPIO pins
 const int pin_set = 13; // D7
 const int pin_reset = 15; // D8
 
 const int pin_set_led = 5; // D1
-const int pin_reset_led = 2; // D4
+const int pin_reset_led = 4; // D2
 
 bool master_state = false; // State of SmartSwitch
 
@@ -33,14 +37,20 @@ void setup() {
   Serial.begin(115200);
   while(!Serial) { delay(100); }
 
-  Serial.println("test");
-
+  // Initialize pin modes
   pinMode(pin_set, 0x01);
   pinMode(pin_reset, 0x01);
+  pinMode(pin_set_led, 0x01);
+  pinMode(pin_reset_led, 0x01);
+
+  // Initialize pin states
   digitalWrite(pin_set, 0x0);
   digitalWrite(pin_reset, 0x0);
+  digitalWrite(pin_set_led, 0x0);
+  digitalWrite(pin_reset_led, 0x0);
 
-  wifiMulti.addAP("ATTW6YS4I2", "c%qi=ijne=t+"); // add Wi-Fi networks you want to connect to
+  // Connect to wifi
+  wifiMulti.addAP(network_name, network_password); // add Wi-Fi networks you want to connect to
 
   Serial.println("Connecting ...");
   int i = 0;
@@ -50,15 +60,14 @@ void setup() {
   }
   Serial.println('\n');
   Serial.print("Connected to ");
-  Serial.println(WiFi.SSID()); // Tell us what network we're connected to
-  Serial.print("IP address:\t");
-  Serial.println(WiFi.localIP()); // Send the IP address of the ESP8266 to the computer
+  Serial.println(WiFi.SSID());
+  Serial.print("IP address:\t"); // Print IP address
+  Serial.println(WiFi.localIP());
 
-  if (MDNS.begin("SmartSwitch")) { // Start the mDNS responder for esp8266.local
+  if (MDNS.begin("SmartSwitch")) // Start the mDNS responder for esp8266.local
     Serial.println("mDNS responder started");
-  } else {
+  else
     Serial.println("Error setting up MDNS responder!");
-  }
 
   SPIFFS.begin(); // Start the SPI Flash Files System
 
@@ -78,20 +87,18 @@ void loop(void) {
 
   server.handleClient();
 
+  // Reset after elapsed time after command
   if (set_state && millis() > set_timeout)
   {
     digitalWrite(pin_set, 0x0);
-
     set_state = false;
   }
 
   if (reset_state && millis() > reset_timeout)
   {
     digitalWrite(pin_reset, 0x0);
-
     reset_state = false;
   }
-
 }
 
 String getContentType(String filename) { // convert the file extension to the MIME type
@@ -116,6 +123,7 @@ bool handleFileRead(String path) { // send the right file to the client (if it e
   else if (path.endsWith("/button_on.html"))
   {
     digitalWrite(pin_set, 0x1);
+    digitalWrite(pin_reset, 0x0);
     digitalWrite(pin_set_led, 0x1);
     digitalWrite(pin_reset_led, 0x0);
 
@@ -127,6 +135,7 @@ bool handleFileRead(String path) { // send the right file to the client (if it e
   }
   else if (path.endsWith("/button_off.html"))
   {
+    digitalWrite(pin_set, 0x0);
     digitalWrite(pin_reset, 0x1);
     digitalWrite(pin_set_led, 0x0);
     digitalWrite(pin_reset_led, 0x1);
