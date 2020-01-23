@@ -3,7 +3,7 @@ Easy home IoT. Splice between home wiring (120-240V AC/7-32V DC) to control anyt
 
 <br>
 <p align="center"> 
-  <img src="photos/combined.jpg" width="400">
+  <img src="photos/combined.JPG" width="700">
 </p>
 <br>
 
@@ -11,6 +11,6 @@ The ESP8266 microcontroller is utilized as a webserver. When an HTTP request is 
 
 <br>
 <p align="center"> 
-  <img src="photos/functional_diagram.jpg" width="400">
+  <img src="photos/functional_diagram.jpg" width="500">
 </p>
 <br>
