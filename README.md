@@ -11,6 +11,6 @@ The ESP8266 microcontroller is utilized as a webserver. When an HTTP request is 
 
 <br>
 <p align="center"> 
-  <img src="photos/Functional Diagram.jpg" width="400">
+  <img src="photos/functional_diagram.jpg" width="400">
 </p>
 <br>
